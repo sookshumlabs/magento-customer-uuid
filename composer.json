@@ -2,7 +2,7 @@
   "name": "quarryteam/module-customer-uuid",
   "description": "Adds a unique UUID attribute to Magento customers",
   "type": "magento2-module",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "license": [
     "proprietary"
   ],

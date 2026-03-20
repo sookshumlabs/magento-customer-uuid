@@ -1,0 +1,25 @@
+{
+  "name": "quarryteam/module-customer-uuid",
+  "description": "Adds a unique UUID attribute to Magento customers",
+  "type": "magento2-module",
+  "version": "1.0.2",
+  "license": [
+    "proprietary"
+  ],
+  "require": {
+    "php": "^8.1 || ^8.2 || ^8.3",
+    "ramsey/uuid": "^4.7",
+    "magento/framework": "^103.0",
+    "magento/module-customer": "*",
+    "magento/module-customer-graph-ql": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "QuarryTeam\\CustomerUuid\\": ""
+    }
+  }
+}
+

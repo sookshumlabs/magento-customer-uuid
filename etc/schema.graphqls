@@ -1,0 +1,3 @@
+extend type Customer {
+    uuid: String @resolver(class: "QuarryTeam\\CustomerUuid\\Model\\Resolver\\CustomerUuid") @doc(description: "Unique UUID assigned to the customer.")
+}

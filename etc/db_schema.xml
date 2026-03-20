@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © QuarryTeam
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="quarryteam_customer_uuid" resource="default" engine="innodb" comment="Customer UUID Values">
+        <column xsi:type="int" name="value_id" unsigned="true" nullable="false" identity="true" comment="Value ID"/>
+        <column xsi:type="smallint" name="attribute_id" unsigned="true" nullable="false" comment="Attribute ID"/>
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" comment="Customer Entity ID"/>
+        <column xsi:type="varchar" name="value" nullable="false" length="36" comment="UUID Value"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="value_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="QUARRYTEAM_CUSTOMER_UUID_ENTITY_ATTRIBUTE_UNQ">
+            <column name="entity_id"/>
+            <column name="attribute_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="QUARRYTEAM_CUSTOMER_UUID_VALUE_UNQ">
+            <column name="value"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="QUARRYTEAM_CUSTOMER_UUID_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID" table="quarryteam_customer_uuid" column="attribute_id" referenceTable="eav_attribute" referenceColumn="attribute_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="QUARRYTEAM_CUSTOMER_UUID_ENTITY_ID_CUSTOMER_ENTITY_ENTITY_ID" table="quarryteam_customer_uuid" column="entity_id" referenceTable="customer_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+</schema>
+
